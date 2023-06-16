@@ -19,8 +19,8 @@ def math_pre_req_of(code):
 
     # using the helper function, capitalize the course code
 
-    # User typed in a worng format 
-    if len(code) != 6:
+    # User typed a code in a worng format 
+    if (len(code) != 6) or (len(code) != 7):
         print("The course code you typed is not in the right format, make sure " +
               " the course code is in the right format and try again (e.g. MAT223)")
         return 0
@@ -28,8 +28,24 @@ def math_pre_req_of(code):
     # if the format is right, capitalize the course code so it can be looked up
     code = code.upper()
 
+    url = 'https://artsci.calendar.utoronto.ca/section/Mathematics'
+
+    # request HTTP GET from the url
+    response = requests.get(url)
+
+    # if status code indicates error (e.g. 404)
+    if response.status_code != 200:
+        print(response.status_code)
     
+    # if status code is 200 (OK)
+    html = response.text
+    soup = BeautifulSoup(html, 'html.parser')
+
+    # using find_all
+
     
 
+
+    
 
     return 1
