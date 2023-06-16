@@ -19,24 +19,17 @@ def math_pre_req_of(code):
 
     # using the helper function, capitalize the course code
 
-
-
-
-
-    return lst
-
-
-def capitalize_code(code):
-    # a helper function to help capitalize the course code.
-    # code : course code of a course
-
-    # the course code is not in a valid format
-    if (len(code) != 6):
+    # User typed in a worng format 
+    if len(code) != 6:
         print("The course code you typed is not in the right format, make sure " +
               " the course code is in the right format and try again (e.g. MAT223)")
-        return 0 # indicates an error
+        return 0
 
-    else:
-        capitalized_code = code.upper()
-        code = capitalized_code
-        return 1 # indicates success
+    # if the format is right, capitalize the course code so it can be looked up
+    code = code.upper()
+
+    
+    
+
+
+    return 1
